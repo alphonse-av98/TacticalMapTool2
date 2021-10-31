@@ -1,0 +1,520 @@
+/* Object Tab */
+.map-edit-objects-area {
+  padding-top: 3px;
+  width: 268px;
+  display: inline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  user-select: none;
+}
+
+/* Preview Window */
+.map-edit-preview {
+  height: 60px;
+  width: 100%;
+  border: solid white 1px;
+  background: #001c55;
+}
+
+/* Object Btn */
+input[name="objBtn"] {
+  display: none;
+}
+
+input[name="objBtn"]:checked + .object-btn {
+  background: deepskyblue;
+}
+
+.object-btn {
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  margin: 1px;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  color: #fff;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.object-btn:active {
+  height: 24px;
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+  user-select: none;
+}
+
+.object-btn img {
+  height: 20px;
+}
+
+/* 設定パネル */
+.map-edit-object-name-conf,
+.map-edit-object-color-conf,
+.map-edit-object-size-conf,
+.map-edit-object-alpha-conf,
+.map-edit-object-rotate-conf,
+.map-edit-object-pos-conf,
+.map-edit-object-msg-conf,
+.map-edit-object-arc-conf,
+.map-edit-object-arcarrow-conf,
+.map-edit-object-area-conf,
+.map-edit-object-point-conf,
+.map-edit-object-head-conf,
+.map-edit-object-line-conf,
+.map-edit-object-poslist-conf,
+.map-edit-object-scale-conf {
+  display: none;
+}
+
+input[id="repositionBtn"] {
+  display: none;
+}
+
+input[id="pointBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="pointBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="pointBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="pointBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="pointBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="pointBtn"]:checked ~ .map-edit-object-point-conf,
+input[id="msgBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="msgBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="msgBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="msgBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="msgBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="msgBtn"]:checked ~ .map-edit-object-msg-conf,
+input[id="unitBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="unitBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="unitBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="unitBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="unitBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="unitBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="shipBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="shipBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="shipBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="shipBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="shipBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="shipBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="fleetBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="fleetBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="fleetBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="fleetBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="fleetBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="fleetBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="planeBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="planeBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="planeBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="planeBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="planeBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="planeBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-poslist-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-head-conf,
+input[id="lineBtn"]:checked ~ .map-edit-object-line-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-area-conf,
+input[id="arcBtn"]:checked ~ .map-edit-object-arc-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-pos-conf,
+input[id="areaBtn"]:checked ~ .map-edit-object-area-conf,
+input[id="arcarrowBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="arcarrowBtn"]:checked ~ .map-edit-object-color-conf,
+input[id="arcarrowBtn"]:checked ~ .map-edit-object-size-conf,
+input[id="arcarrowBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="arcarrowBtn"]:checked ~ .map-edit-object-head-conf,
+input[id="arcarrowBtn"]:checked ~ .map-edit-object-arcarrow-conf,
+input[id="imageBtn"]:checked ~ .map-edit-object-name-conf,
+input[id="imageBtn"]:checked ~ .map-edit-object-alpha-conf,
+input[id="imageBtn"]:checked ~ .map-edit-object-rotate-conf,
+input[id="imageBtn"]:checked ~ .map-edit-object-scale-conf,
+input[id="imageBtn"]:checked ~ .map-edit-object-pos-conf {
+  display: block;
+  transition: 0.5s opacity;
+  opacity: 1;
+}
+
+/* ObjectName Area */
+.map-edit-object-conf-area {
+  width: auto;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  background: darkblue;
+  border: solid white 1px;
+  color: #fff;
+  padding: 5px;
+  display: flex;
+}
+
+.map-object-conf-label {
+  width: 90px;
+  font-size: large;
+  text-align: right;
+  background: none;
+  display: block;
+}
+
+.map-object-conf-value {
+  display: inline-block;
+  margin-left: 10px;
+  background: none;
+}
+
+/* オブジェクト名 */
+.map-edit-object-name {
+  width: 150px;
+  font-size: large;
+}
+
+/* massageArea */
+.map-edit-object-conf-msg-area {
+  display: block;
+  width: 100%;
+}
+
+/* メッセージ入力 */
+.map-edit-object-message {
+  width: -webkit-fill-available;
+  height: 50px;
+  font-size: large;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* カラー入力 */
+.map-edit-object-color {
+  width: 25px;
+}
+
+/* messageObjectの枠線のスイッチ */
+input[id="msgGrid"] {
+  display: none;
+}
+
+.map-edit-object-msg-grid {
+  border-radius: 30px;
+}
+
+.map-edit-object-msg-grid::before {
+  content: "OFF";
+  font-weight: bold;
+  font-size: 10px;
+  color: #fff;
+  line-height: 30px;
+  padding: 0 0 0 32px;
+}
+
+.map-edit-object-msg-grid::after {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: solid 3px #666;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+input[id="msgGrid"]:checked + .map-edit-object-msg-grid {
+  background: #832db4;
+}
+
+input[id="msgGrid"]:checked + .map-edit-object-msg-grid::before {
+  content: "ON";
+  padding: 0 0 0 10px;
+}
+
+input[id="msgGrid"]:checked + .map-edit-object-msg-grid::after {
+  border: solid 3px #832db4;
+  left: 30px;
+}
+
+/* デフォルトカラー選択 */
+.color-btn {
+  margin-left: 5px;
+  padding: 3px 8px;
+  color: #fff;
+  border-radius: 100% 80px / 80px 100%;
+}
+
+.obj-color-red {
+  background: #fe024a;
+}
+
+.obj-color-cyan {
+  background: cyan;
+}
+
+.obj-color-yellow {
+  background: yellow;
+}
+
+.obj-color-purple {
+  background: purple;
+}
+
+.obj-color-orange {
+  background: orange;
+}
+
+.obj-color-greenyellow {
+  background: greenyellow;
+}
+
+.color-btn:hover {
+  color: #fff;
+  border-radius: 60% 80% / 100% 80%;
+}
+
+/* サイズ */
+.map-edit-object-size {
+  width: 60px;
+  font-size: large;
+}
+
+/* ドロップダウン */
+.map-edit-object-dropdown {
+  font-size: large;
+}
+
+/* 透明度バー */
+.map-edit-object-alpha {
+  width: 60px;
+  font-size: large;
+}
+
+/* 角度変更ボタン */
+.inc-deg-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: gray;
+  font-size: 20px;
+  font-family: monospace, serif;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.map-edit-object-rotate {
+  width: 60px;
+  font-size: large;
+}
+
+/* 二重円フラグ */
+input[id="doubleFlag"] {
+  display: none;
+}
+
+.map-edit-point-object-double {
+  border-radius: 30px;
+}
+.map-edit-point-object-double::before {
+  content: "OFF";
+  font-weight: bold;
+  font-size: 10px;
+  color: #fff;
+  line-height: 30px;
+  padding: 0 0 0 32px;
+}
+.map-edit-point-object-double::after {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: solid 3px #666;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+input[id="doubleFlag"]:checked + .map-edit-point-object-double {
+  background: #832db4;
+}
+input[id="doubleFlag"]:checked + .map-edit-point-object-double::before {
+  content: "ON";
+  padding: 0 0 0 10px;
+}
+input[id="doubleFlag"]:checked + .map-edit-point-object-double::after {
+  border: solid 3px #832db4;
+  left: 30px;
+}
+
+/* 位置情報 */
+.map-edit-object-xy {
+  width: 50px;
+  font-size: large;
+}
+
+.map-edit-object-xy-label {
+  display: inline;
+  background: none;
+}
+
+/* 位置情報リスト */
+.map-edit-object-pos-list {
+  width: 170px;
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.map-edit-object-pos-del {
+  margin-right: 15px;
+  float: right;
+}
+
+/* arrowhead Btn */
+input[name="arrowhead"] {
+  display: none;
+}
+
+input[name="arrowhead"]:checked + .arrowhead-btn {
+  background: deepskyblue;
+}
+
+.arrowhead-btn {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  margin: 1px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  background: #668ad8;
+  color: #fff;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.arrowhead-btn:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+  user-select: none;
+}
+
+.map-edit-object-arrowhead-conf-img {
+  height: 30px;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* 線の最初を破線にするボタン */
+.map-edit-object-line-dash-s {
+  border-radius: 30px;
+}
+
+.map-edit-object-line-dash-s::before {
+  content: "OFF";
+  font-weight: bold;
+  font-size: 10px;
+  color: #fff;
+  line-height: 30px;
+  padding: 0 0 0 32px;
+}
+
+.map-edit-object-line-dash-s::after {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: solid 3px #666;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* messageObjectの枠線のスイッチ */
+input[id="startDash"] {
+  display: none;
+}
+
+input[id="startDash"]:checked + .map-edit-object-line-dash-s {
+  background: #832db4;
+}
+
+input[id="startDash"]:checked + .map-edit-object-line-dash-s::before {
+  content: "ON";
+  padding: 0 0 0 10px;
+}
+
+input[id="startDash"]:checked + .map-edit-object-line-dash-s::after {
+  border: solid 3px #832db4;
+  left: 30px;
+}
+
+/* 線の最後を破線にするボタン */
+.map-edit-object-line-dash-e {
+  border-radius: 30px;
+}
+
+.map-edit-object-line-dash-e::before {
+  content: "OFF";
+  font-weight: bold;
+  font-size: 10px;
+  color: #fff;
+  line-height: 30px;
+  padding: 0 0 0 32px;
+}
+
+.map-edit-object-line-dash-e::after {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: solid 3px #666;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* messageObjectの枠線のスイッチ */
+input[id="endDash"] {
+  display: none;
+}
+
+input[id="endDash"]:checked + .map-edit-object-line-dash-e {
+  background: #832db4;
+}
+
+input[id="endDash"]:checked + .map-edit-object-line-dash-e::before {
+  content: "ON";
+  padding: 0 0 0 10px;
+}
+
+input[id="endDash"]:checked + .map-edit-object-line-dash-e::after {
+  border: solid 3px #832db4;
+  left: 30px;
+}
+
+.map-object-conf-range {
+  height: 20px;
+}
+
+/* Image */
+.map-edit-object-range {
+  width: auto;
+}

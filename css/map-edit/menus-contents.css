@@ -1,0 +1,30 @@
+@import url("image-conf.css");
+@import url("objects-area.css");
+@import url("object-list-area.css");
+
+/* Table */
+.map-edit-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85em;
+}
+
+.map-edit-td-head {
+  border: 1px solid #b9b9b9;
+  height: 30px;
+  padding: 5px;
+  background-color: #00ffff;
+  user-select: none;
+}
+
+.map-edit-td-cell {
+  border: 1px solid #b9b9b9;
+  height: 30px;
+  padding: 5px;
+  user-select: none;
+}
+
+.map-edit-cell-element {
+  display: block;
+  height: 35px;
+}

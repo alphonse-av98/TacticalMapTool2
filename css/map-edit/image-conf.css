@@ -1,0 +1,28 @@
+/* Image conf */
+.map-edit-image-conf {
+  padding-top: 3px;
+}
+
+input[name="imagefile"] {
+  display: none;
+}
+
+.map-edit-name-text {
+  font-size: 16px;
+  height: 25px;
+  width: auto;
+}
+
+.map-image-size {
+  color: #fff;
+}
+
+input[id="mapImport"] {
+  display: none;
+}
+
+.map-image-font {
+  color: #fff;
+  font-size: large;
+  padding-left: 5px;
+}

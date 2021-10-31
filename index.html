@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TacticalMapTool</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/optin.css">
+    <link rel="stylesheet" type="text/css" href="css/main-tab.css">
+    <link rel="stylesheet" type="text/css" href="css/map-edit/map-edit.css">
+    <link rel="stylesheet" type="text/css" href="css/movie-edit/movie-edit.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH0XHZKRC1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-CH0XHZKRC1');
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="optin-popup">
+            <div class="optin-popup-content">
+                <h2>利用規約への同意</h2>
+                <p><a href="terms.html">利用規約</a>を作成しておりますので、読んでからご利用ください。</p>
+                <label id="accept" class="accept-btn">Accept</label>
+                <label id="acceptGaOptout" class="accept-btn">Accept(without GA)</label>
+                <label id="deny" class="deny-btn">Deny</label>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="edit-tab-section">
+            <input id="editMap" type="radio" name="edit-tab" checked>
+            <label class="edit-tab" for="editMap">Map Editor</label>
+            <div class="edit-content">
+                <div class="map-edit">
+                    <div class="map-edit-menus">
+                        <h3>Edit</h3>
+                        <section class="map-edit-menus-tab">
+                            <input id="pictureConfTab" type="checkbox" name="map-edit-menus-tab-item" checked>
+                            <label class="map-edit-menus-tab-item" for="pictureConfTab">Map Setting</label>
+                            <div class="map-edit-menus-content">
+                                <div class="map-edit-image-conf">
+                                    <table class="map-edit-table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="map-edit-td-head">Name</td>
+                                                <td class="map-edit-td-cell">
+                                                    <input type="text" id="mapName" value="current"
+                                                        class="map-edit-name-text">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <input id="objectConfTab" type="checkbox" name="map-edit-menus-tab-item" checked>
+                            <label class="map-edit-menus-tab-item" for="objectConfTab">Object Panel
+                                <!-- (<a href="manual/map-edit_manual.png" data-lightbox="group">Manual</a>) -->
+                            </label>
+                            <div class="map-edit-menus-content">
+                                <div class="map-edit-objects-area">
+                                    <canvas id="previewCanvas" class="map-edit-preview"></canvas>
+                                    <input id="blankBtn" type="radio" name="objBtn" value="blank" checked="checked">
+                                    <label for="blankBtn" class="object-btn"><img src="img/blank.png"></label>
+                                    <input id="fdBtn" type="radio" name="objBtn" value="forceDistribution">
+                                    <label for="fdBtn" class="object-btn"><img src="img/fd.png" /></label>
+                                    <input id="imageBtn" type="radio" name="objBtn" value="image">
+                                    <label for="imageBtn" class="object-btn"><img src="img/image.png" /></label>
+                                    <input id="unitBtn" type="radio" name="objBtn" value="unit">
+                                    <label for="unitBtn" class="object-btn"><img src="img/unit.png" /></label>
+                                    <input id="pointBtn" type="radio" name="objBtn" value="point">
+                                    <label for="pointBtn" class="object-btn"><img src="img/point.png" /></label>
+                                    <input id="shipBtn" type="radio" name="objBtn" value="ship">
+                                    <label for="shipBtn" class="object-btn"><img src="img/ship.png" /></label>
+                                    <input id="fleetBtn" type="radio" name="objBtn" value="fleet">
+                                    <label for="fleetBtn" class="object-btn"><img src="img/fleet.png" /></label>
+                                    <input id="planeBtn" type="radio" name="objBtn" value="plane">
+                                    <label for="planeBtn" class="object-btn"><img src="img/plane.png" /></label>
+                                    <input id="lineBtn" type="radio" name="objBtn" value="line">
+                                    <label for="lineBtn" class="object-btn"><img src="img/line.png" /></label>
+                                    <input id="arcBtn" type="radio" name="objBtn" value="arc">
+                                    <label for="arcBtn" class="object-btn"><img src="img/arc.png" /></label>
+                                    <input id="areaBtn" type="radio" name="objBtn" value="area">
+                                    <label for="areaBtn" class="object-btn"><img src="img/area.png" /></label>
+                                    <input id="arcarrowBtn" type="radio" name="objBtn" value="arcarrow">
+                                    <label for="arcarrowBtn" class="object-btn"><img src="img/arcarrow.png" /></label>
+                                    <input id="msgBtn" type="radio" name="objBtn" value="message">
+                                    <label for="msgBtn" class="object-btn"><img src="img/message.png" /></label><br>
+                                    <div>
+                                        <br />
+                                    </div>
+                                    <div class="map-edit-object-name-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">ObjName:</div>
+                                            <div class="map-object-conf-value">
+                                                <input type="text" class="map-edit-object-name" id="objName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-msg-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-edit-object-conf-msg-area">
+                                                <div class="map-object-conf-label">Message:</div>
+                                                <textarea id="msgMessage" class="map-edit-object-message"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-color-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Color:</div>
+                                            <div class="map-object-conf-value">
+                                                <input type="color" value="#FE024A" class="map-edit-object-color"
+                                                    id="objColor">
+                                                <label class="color-btn obj-color-red"></label>
+                                                <label class="color-btn obj-color-cyan"></label>
+                                                <label class="color-btn obj-color-yellow"></label>
+                                                <label class="color-btn obj-color-purple"></label>
+                                                <label class="color-btn obj-color-orange"></label>
+                                                <label class="color-btn obj-color-greenyellow"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-size-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Size:</div>
+                                            <div class="map-object-conf-value">
+                                                <label id="sizeDeg" class="inc-deg-btn">-</label>
+                                                <input type="number" id="objSize" size="3" min="1" value="20"
+                                                    class="map-edit-object-size" />
+                                                <label id="sizeInc" class="inc-deg-btn">+</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-alpha-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Alpha:</div>
+                                            <div class="map-object-conf-value">
+                                                <label id="objAlphaDeg" class="inc-deg-btn">-</label>
+                                                <input type="number" id="objAlpha" step="1" min="0" max="100" value="90"
+                                                    class="map-edit-object-alpha">
+                                                <label id="objAlphaInc" class="inc-deg-btn">+</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-rotate-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Rotate:</div>
+                                            <div class="map-object-conf-value">
+                                                <label id="rotateDeg" class="inc-deg-btn">-</label>
+                                                <input type="number" id="objRotate" size="3" max="180" min="-180"
+                                                    value="0" class="map-edit-object-rotate" />
+                                                <label id="rotateInc" class="inc-deg-btn">+</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-point-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Double:</div>
+                                            <div class="map-object-conf-value">
+                                                <label>
+                                                    <input type="checkbox" id="doubleFlag" />
+                                                    <span class="switch map-edit-point-object-double"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-msg-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Grid:</div>
+                                            <div class="map-object-conf-value">
+                                                <label>
+                                                    <input type="checkbox" id="msgGrid" />
+                                                    <span class="switch map-edit-object-msg-grid"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-head-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Head:</div>
+                                            <div class="map-object-conf-value">
+                                                <input id="noHead" type="radio" name="arrowhead" value="" checked>
+                                                <label for="noHead" class="arrowhead-btn">
+                                                    <div class="map-edit-object-arrowhead-conf-img">
+                                                        -
+                                                    </div>
+                                                </label>
+                                                <input id="unitHead" type="radio" name="arrowhead" value="unit">
+                                                <label for="unitHead" class="arrowhead-btn">
+                                                    <div class="map-edit-object-arrowhead-conf-img">
+                                                        <img src="./img/unit.png">
+                                                    </div>
+                                                </label>
+                                                <input id="triangleHead" type="radio" name="arrowhead" value="triangle">
+                                                <label for="triangleHead" class="arrowhead-btn">
+                                                    <div class="map-edit-object-arrowhead-conf-img">
+                                                        <img src="./img/triangle.png">
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-line-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">StartDash:</div>
+                                            <div class="map-object-conf-value">
+                                                <label>
+                                                    <input type="checkbox" id="startDash" />
+                                                    <span class="switch map-edit-object-line-dash-s"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">EndDash:</div>
+                                            <div class="map-object-conf-value">
+                                                <label>
+                                                    <input type="checkbox" id="endDash" />
+                                                    <span class="switch map-edit-object-line-dash-e"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-scale-conf">
+                                        <input type="file" id="imageObject" name="imagefile"
+                                            accept=".jpg, jpeg, .png, .gif, .svg, .tiff, .bmp" />
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Scale:</div>
+                                            <div class="map-object-conf-value">
+                                                <input type="range" id="objScale" min="1" max="200" value="100" step="1"
+                                                    class="map-edit-object-range" list="tickmarks" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-pos-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Position:</div>
+                                            <div class="map-object-conf-value">
+                                                <div class="map-edit-object-xy-label">X:
+                                                    <input type="number" id="objX" size="10" class="map-edit-object-xy">
+                                                </div>
+                                                <div class="map-edit-object-xy-label">Y:
+                                                    <input type="number" id="objY" size="10" class="map-edit-object-xy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-poslist-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">Position:</div>
+                                            <div class="map-object-conf-value">
+                                                <div class="map-edit-object-xy-label">X:
+                                                    <input type="number" id="objListX" size="10"
+                                                        class="map-edit-object-xy">
+                                                </div>
+                                                <div class="map-edit-object-xy-label">Y:
+                                                    <input type="number" id="objListY" size="10"
+                                                        class="map-edit-object-xy">
+                                                </div>
+                                                <select size="3" id="posList" class="map-edit-object-pos-list"></select>
+                                                <div class="map-edit-object-pos-del">
+                                                    <label class="label-btn" id="delPos">Del</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-area-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">
+                                                <div>Width:</div>
+                                                <div>Height:</div>
+                                            </div>
+                                            <div class="map-object-conf-value">
+                                                <div>
+                                                    <input type="number" id="areaWidth" size="10" value="100"
+                                                        class="map-edit-object-xy">
+                                                </div>
+                                                <div>
+                                                    <input type="number" id="areaHeight" size="10" value="30"
+                                                        class="map-edit-object-xy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-arc-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">
+                                                <div>Angle:</div>
+                                            </div>
+                                            <div class="map-object-conf-value">
+                                                <input type="number" id="arcStartAngle" size="10" value="30" max="180"
+                                                    min="-180" class="map-edit-object-xy">
+                                                <label>～</label>
+                                                <input type="number" id="arcEndAngle" size="10" value="150" max="180"
+                                                    min="-180" class="map-edit-object-xy">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="map-edit-object-arcarrow-conf">
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">
+                                                <div>Start:</div>
+                                                <div>End:</div>
+                                            </div>
+                                            <div class="map-object-conf-value">
+                                                <div>
+                                                    <div class="map-edit-object-xy-label">X:
+                                                        <input type="text" id="startPointX" size="10"
+                                                            class="map-edit-object-xy">
+                                                    </div>
+                                                    <div class="map-edit-object-xy-label">Y:
+                                                        <input type="text" id="startPointY" size="10"
+                                                            class="map-edit-object-xy">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="map-edit-object-xy-label">X:
+                                                        <input type="text" id="endPointX" size="10"
+                                                            class="map-edit-object-xy">
+                                                    </div>
+                                                    <div class="map-edit-object-xy-label">Y:
+                                                        <input type="text" id="endPointY" size="10"
+                                                            class="map-edit-object-xy">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="map-edit-object-conf-area">
+                                            <div class="map-object-conf-label">
+                                                <div>Division:</div>
+                                                <div>Camber:</div>
+                                            </div>
+                                            <div class="map-object-conf-value">
+                                                <div>
+                                                    <input type="range" id="division" class="map-object-conf-range"
+                                                        value="0.5" min="0" max="1" step="0.05">
+                                                </div>
+                                                <div>
+                                                    <input type="number" id="camber" size="10" value="50"
+                                                        class="map-edit-object-xy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input id="objectListTab" type="checkbox" name="map-edit-menus-tab-item" checked>
+                            <label class="map-edit-menus-tab-item" for="objectListTab">Object List</label>
+                            <div class="map-edit-menus-content">
+                                <div class="map-edit-object-list-area">
+                                    <select size="8" id="objectList" class="map-edit-object-list"></select>
+                                    <div class="map-edit-object-list-btn">
+                                        <label class="label-btn" id="objUpBtn">↑</label>
+                                        <label class="label-btn" id="objDownBtn">↓</label>
+                                        <label class="label-btn" id="objDelBtn">Del</label>
+                                        <label class="label-btn" id="allObjDelBtn">AllDel</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="map-edit-canvas">
+                        <h3>Canvas</h3>
+                        <div>
+                            <div class="map-edit-image-menu">
+                                <ul>
+                                    <li><a>File</a>
+                                        <div class="map-edit-image-menu-file-list">
+                                            <ul>
+                                                <li><a id="importImage">Import(Image)</a></li>
+                                                <input type="file" id="imagefile" name="imagefile"
+                                                    accept=".jpg, jpeg, .png, .gif, .svg, .tiff, .bmp" />
+                                                <li><a id="importConf">Import(Conf)</a></li>
+                                                <input type="file" id="mapImport" accept=".json" />
+                                                <li><a id="mapCanvasSave">Export(Image)</a></li>
+                                                <li><a id="mapExport">Export(Conf)</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <input type="checkbox" id="mapBackground">
+                                            <label for="mapBackground">Background</label>
+                                        </a>
+                                        <div class="map-edit-image-menu-panel">
+                                            <div class="map-grid-contents">
+                                                <div class="map-grid-content">
+                                                    <label for="mapBackgroundColor"
+                                                        class="map-object-conf-label">Color:</label>
+                                                    <div class="map-object-conf-value">
+                                                        <input type="color" value="#000000" class="map-grid-color"
+                                                            id="mapBackgroundColor">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="map-grid-contents">
+                                                <div class="map-grid-content">
+                                                    <label for="mapBackgroundAlpha"
+                                                        class="map-object-conf-label">Alpha:</label>
+                                                    <input type="number" value="100" class="map-grid-size"
+                                                        id="mapBackgroundAlpha">
+                                                    <label class="map-image-font">%</label>
+                                                </div>
+                                            </div>
+                                            <div class="map-grid-contents">
+                                                <div class="map-grid-content">
+                                                    <label for="canvasWidth"
+                                                        class="map-object-conf-label">Width:</label>
+                                                    <input type="number" value="1280" min="100" size="4"
+                                                        id="canvasWidth" class="map-canvas-size">
+                                                    <label class="map-image-font">px</label>
+                                                </div>
+                                            </div>
+                                            <div class="map-grid-contents">
+                                                <div class="map-grid-content">
+                                                    <label for="canvasHeight"
+                                                        class="map-object-conf-label">Height:</label>
+                                                    <input type="number" value="720" min="100" size="4"
+                                                        id="canvasHeight" class="map-canvas-size">
+                                                    <label class="map-image-font">px</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <input type="checkbox" id="mapGrid">
+                                            <label for="mapGrid">Grid</label>
+                                        </a>
+                                        <div class="map-edit-image-menu-panel">
+                                            <div class="map-grid-contents">
+                                                <div class="map-grid-content">
+                                                    <label for="mapGridColor"
+                                                        class="map-object-conf-label">Color:</label>
+                                                    <div class="map-object-conf-value">
+                                                        <input type="color" value="#00FFFF" class="map-grid-color"
+                                                            id="mapGridColor">
+                                                    </div>
+                                                </div>
+                                                <div class="map-grid-content">
+                                                    <label for="mapGridSize"
+                                                        class="map-object-conf-label">GridSize:</label>
+                                                    <input type="number" value="100" min="1" size="3" id="mapGridSize"
+                                                        class="map-grid-size">
+                                                    <label class="map-image-font">px</label>
+                                                </div>
+                                                <div class="map-grid-content">
+                                                    <label for="mapLineSize"
+                                                        class="map-object-conf-label">LineSize:</label>
+                                                    <input type="number" value="1" min="1" max="5" size="3"
+                                                        id="mapLineSize" class="map-grid-size">
+                                                    <label class="map-image-font">px</label>
+                                                </div>
+                                                <div class="map-grid-content">
+                                                    <label for="mapLineAlpha"
+                                                        class="map-object-conf-label">Alpha:</label>
+                                                    <input type="number" value="30" min="1" max="100" size="3"
+                                                        id="mapLineAlpha" class="map-grid-size">
+                                                    <label class="map-image-font">%</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a>ForceDistribution</a>
+                                        <div class="map-edit-image-menu-panel">
+                                            <div class="map-grid-contents">
+                                                <div class="map-grid-content">
+                                                    <label for="mapFdColor" class="map-object-conf-label">Color:</label>
+                                                    <div class="map-object-conf-value">
+                                                        <input type="color" value="#FF1E64" class="map-grid-color"
+                                                            id="mapFdColor">
+                                                    </div>
+                                                </div>
+                                                <div class="map-grid-content">
+                                                    <label for="mapGridSize"
+                                                        class="map-object-conf-label">GridSize:</label>
+                                                    <input type="number" value="20" min="1" size="3" id="mapFdGridSize"
+                                                        class="map-grid-size">
+                                                    <label class="map-image-font">px</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a id="repositionBtn">Reposition</a>
+                                    </li>
+                                    <li>
+                                        <a id="mapAddMapList">Add (MovieMapList)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="map-edit-canvas-area">
+                            <canvas id="canvas" width="1280" height="720"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input id="editMovie" type="radio" name="edit-tab">
+            <label class="edit-tab" for="editMovie">Movie Maker(β)</label>
+            <div class="edit-content">
+                <div class="movie-edit">
+                    <div class="movie-map-list">
+                        <h3>MAP LIST</h3>
+                        <div class="data-action-area">
+                            <label for="loadFile" class="data-action-file-label">Load</label>
+                            <input type="file" name="loadfile" id="loadFile"
+                                accept=".jpg, jpeg, .png, .gif, .svg, .tiff, .bmp" />
+                            <label id="mapAddBtn" class="data-action-file-label">ADD</label>
+                        </div>
+                        <select id="mapList" class="map-list" size="20">
+                        </select>
+                    </div>
+                    <div class="movie-project">
+                        <h3>PROJECT</h3>
+                        <div class="movie-pj-panel">
+                            <table class="map-edit-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="map-edit-td-head">Preview</td>
+                                        <td class="map-edit-td-cell">
+                                            <label id="animationPreview" class="pjobj-btn">Preview</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="map-edit-td-head">Namae</td>
+                                        <td class="map-edit-td-cell">
+                                            <input type="text" class="map-edit-name-text" id="gifName"
+                                                value="download" />
+                                            <label id="downloadBtn" class="pjobj-btn">DL</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="map-edit-td-head">Width</td>
+                                        <td class="map-edit-td-cell">
+                                            <input type="number" value="640" min="128" id="movieWidth"
+                                                class="movie-image-size">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="map-edit-td-head">Height</td>
+                                        <td class="map-edit-td-cell">
+                                            <input type="number" value="480" min="128" id="movieHeight"
+                                                class="movie-image-size">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="movieObjectList" class="moveie-object-list">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movie-canvas">
+                        <h3>MAP</h3>
+                        <div class="movie-preview-canvas">
+                            <img id="animePreview">
+                        </div>
+                        <canvas id="tempCanvas" class="movie-temp-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-term">
+            <div class="footer-panel1">
+                <a href="terms.html" class="footer-link">Terms of Service</a>
+            </div>
+            <div>
+                <a href="https://twitter.com/alphonse_muvluv" class="footer-link"><img src="img/twitter_logo.svg"
+                        title="Creator's Twitter Account" class="footer-link-logo" />@alphonse_muvluv</a>
+            </div>
+        </div>
+        <div>
+            <a href="https://muvluv.com/" class="footer-link" target="_blank"><img
+                    src="https://muv-luv-alternative-anime.com/img/banner/bn_muv-luv-portal.jpg"
+                    title="アニメ マブラヴ オルタネイティブ" class="footer-link-img" /></a>
+            <a href="https://www.project-mikhail.com/" class="footer-link" target="_blank"><img
+                    src="https://muv-luv-alternative-anime.com/img/banner/bn_mikhail.jpg" title="Project MIKHAIL"
+                    class="footer-link-img" /></a>
+            <a href="https://muv-luv-verse.com/" class="footer-link" target="_blank"><img
+                    src="https://muv-luv-alternative-anime.com/img/banner/bn_muv-luv-verse.jpg" title="マブラヴ VERSE"
+                    class="footer-link-img" /></a>
+            <label class="footer-label">©Muv-Luv: The Answer</label>
+        </div>
+    </footer>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script src="lib/jsgif/b64.js"></script>
+<script src="lib/jsgif/GIFEncoder.js"></script>
+<script src="lib/jsgif/LZWEncoder.js"></script>
+<script src="lib/jsgif/NeuQuant.js"></script>
+
+<script src="js/ga-opt-in.js"></script>
+<script src="js/common.js"></script>
+<script src="js/map-edit/map-dragger-canvas.js"></script>
+<script src="js/map-edit/map-menu.js"></script>
+<script src="js/map-edit/map-canvas.js"></script>
+<script src="js/map-edit/map-object.js"></script>
+<script src="js/map-edit/map-force-distribution.js"></script>
+<script src="js/map-edit/map-edit-objBtn.js"></script>
+<script src="js/map-edit/map-edit-object-list.js"></script>
+<script src="js/map-edit/map-image-settings.js"></script>
+<script src="js/movie-edit/movie-edit.js"></script>
+<script src="js/movie-edit/map-list.js"></script>
+
+</html>

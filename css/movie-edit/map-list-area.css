@@ -1,0 +1,34 @@
+/* Map List Area */
+.map-list {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.movie-map-list {
+  width: 200px;
+  height: 100%;
+  overflow: hidden;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  background: #001235;
+}
+
+.data-action-area {
+  margin-top: 10px;
+}
+
+input[name="loadfile"],
+input[name="savefile"] {
+  display: none;
+}
+
+.data-action-file-label {
+  color: #ffffff;
+  background-color: #006dd9;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  border: double 4px #ffffff;
+}

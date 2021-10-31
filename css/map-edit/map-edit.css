@@ -1,0 +1,11 @@
+@import url("menus-area.css");
+@import url("canvas-area.css");
+
+.map-edit {
+  height: calc(100vh - 35px - 60px);
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}

@@ -1,0 +1,96 @@
+@import url("menus-contents.css");
+
+.map-edit-menus {
+  width: 300px;
+  height: 100%;
+  overflow: hidden;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-edit-menus-tab {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.map-edit-menus-tab::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.map-edit-menus-tab::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #a9d0ff;
+}
+
+.map-edit-menus-tab::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: 0 0 4px #aaa inset;
+}
+
+.map-edit-menus-tab-item {
+  height: 25px;
+  flex: 1;
+  display: block;
+  cursor: pointer;
+  padding: 6px;
+  color: #000000;
+  background: #8ec6ff;
+  font-weight: bold;
+  user-select: none;
+}
+
+.map-edit-menus-tab-item::after {
+  content: "";
+  height: 1px;
+  display: block;
+  background: #000000;
+}
+
+input[name="map-edit-menus-tab-item"] {
+  display: none;
+}
+
+.map-edit-menus-tab-item:nth-last-of-type(1) {
+  margin-right: 0;
+}
+
+.map-edit-menus-content {
+  width: 100%;
+  height: 0;
+  padding: 0px;
+  margin-bottom: 5px;
+  overflow: auto;
+  opacity: 0;
+}
+
+input[name="map-edit-menus-tab-item"] {
+  display: none;
+}
+
+input[name="map-edit-menus-tab-item"]:checked + .map-edit-menus-tab-item {
+  color: #ffffff;
+  background: #2a75ff;
+}
+
+input[name="map-edit-menus-tab-item"]:checked
+  + .map-edit-menus-tab-item::after {
+  background: #001235;
+}
+
+input[name="map-edit-menus-tab-item"]:checked
+  + .map-edit-menus-tab-item
+  + .map-edit-menus-content {
+  padding: 5px;
+  height: auto;
+  width: 280px;
+  overflow: hidden;
+  transition: 0.5s opacity;
+  opacity: 1;
+}

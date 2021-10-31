@@ -1,0 +1,57 @@
+/* Edit Area */
+.edit-tab-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-tab-section::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  order: -1;
+  display: block;
+  background: #07358b;
+}
+
+.edit-tab {
+  margin-right: 3px;
+  padding: 3px 12px;
+  flex: 1;
+  order: -1;
+  border-radius: 10px 10px 0 0;
+  color: black;
+  background-color: gray;
+  transition: 0.5s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.edit-tab:nth-last-of-type(1) {
+  margin-right: 0;
+}
+
+.edit-content {
+  width: 100%;
+  height: 0;
+  overflow: auto;
+  opacity: 0;
+}
+
+input[name="edit-tab"] {
+  display: none;
+}
+
+input[name="edit-tab"]:checked + .edit-tab {
+  color: #ffffff;
+  background: #07358b;
+}
+
+input[name="edit-tab"]:checked + .edit-tab + .edit-content {
+  padding: 5px;
+  height: 100%;
+  padding: 0;
+  overflow: auto;
+  box-shadow: 0 0 5px black;
+  transition: 0.5s opacity;
+  opacity: 1;
+}
