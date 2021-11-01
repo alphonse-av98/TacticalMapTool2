@@ -157,8 +157,6 @@ $('#objectList').change(function () {
 
     $('#objectList').blur();
     $('#mapGrid').focus();
-    $('#mapGrid').blur();
-
 });
 
 /* 対象オブジェクトを白い点で示す */
