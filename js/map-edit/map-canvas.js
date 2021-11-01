@@ -502,7 +502,7 @@ $('html').keydown(function (e) {
                 }
                 screen.updateObject(index, new MapObject(createJsonData()));
                 screen.redraw(0, 0);
-                editObjectMarker($('#objX').val(), $('#objY').val());
+                editObjectMarker(parseInt($('#objX').val()), parseInt($('#objY').val()));
                 break;
         }
     }
