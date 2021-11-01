@@ -34,3 +34,10 @@ $('#mapAddBtn').click(function () {
         $('#movieHeight').val(obj.image.height);
     }
 });
+
+$('#mapDelBtn').click(function () {
+    if ($('#mapList').prop('selectedIndex') < 0) {
+        return;
+    }
+    $('#mapList > option:selected').remove();
+});
