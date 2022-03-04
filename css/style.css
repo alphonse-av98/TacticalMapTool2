@@ -73,15 +73,36 @@ footer {
   width: auto;
   margin: 0;
   padding: 0;
-  background: #001235;
+  background: #0055ff;
   display: flex;
   white-space: nowrap;
 }
 
+.footer-item {
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.footer-link-img {
+  height: 40px;
+}
+
+.footer-link-logo {
+  height: 20px;
+}
+
 .footer-term {
-  height: 53px;
-  width: 230px;
+  margin: 5px 0 0 auto;
+  padding-top: 0px;
+  height: 40px;
+  width: 200px;
   display: block;
+}
+
+.footer-term-item {
+  width: 200px;
 }
 
 .footer-label {
@@ -91,18 +112,4 @@ footer {
 .footer-link {
   height: 40px;
   color: #ffffff;
-}
-
-.footer-link-img {
-  height: 45px;
-  background-color: black;
-  margin: 10px 30px 0 0;
-}
-
-.footer-link-logo {
-  height: 20px;
-}
-
-.footer-panel1 {
-  width: 230px;
 }
