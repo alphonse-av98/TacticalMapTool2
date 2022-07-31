@@ -64,10 +64,7 @@ $('#repositionBtn').click(function () {
 $('#mapExport').click(function () {
     const exportData = {
         "name": $('#mapName').val(),
-        "image": screen.image.currentSrc,
-        "objects": screen.objects,
-        "mapGrid": $('#mapGrid').prop('checked'),
-        "mapGridSize": $('#mapGridSize').val()
+        "canvas": screen.toJson()
     }
     const blob = new Blob([JSON.stringify(exportData)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -112,23 +109,45 @@ $('#mapImport').change(function (e) {
         let jsonData = JSON.parse(src);
 
         $("#mapName").val(jsonData.name);
-        for (let i = jsonData.objects.length - 1; i >= 0; i--){
-            screen.addObject(new MapObject(jsonData.objects[i]));
-            $("#objectList").prepend(`<option>` + jsonData.objects[i].name + `</option>`);
-        }
 
-        $("#mapGrid").prop('checked', jsonData.mapGrid);
-        $("#mapGridSize").val(typeof jsonData.mapGridSize !== 'undefined' ? jsonData.mapGridSize : 100)
+        // Canvas設定
+        $('#canvasWidth').val(jsonData.canvas.canvasWidth);
+        $('#canvasHeight').val(jsonData.canvas.canvasHeight);
+        screen.setCanvasSize(jsonData.canvas.canvasWidth,jsonData.canvas.canvasHeight);
+
+        // 背景色設定
+        $('#background').val(jsonData.canvas.background);
+        $('#backgroundAlpha').val(jsonData.canvas.backgroundAlpha);
+        screen.setBgColor(jsonData.canvas.background,jsonData.canvas.backgroundAlpha);
+
+        // Grid設定
+        $('#mapGridSize').val(jsonData.canvas.size);
+        $('#mapGridColor').val(jsonData.canvas.color);
+        $('#mapGridLineSize').val(jsonData.canvas.lineSize);
+        $('#mapGridLineAlpha').val(jsonData.canvas.lineAlpha);
+        if(jsonData.canvas.lineAlpha == 0){
+            $('#mapGrid').prop("checked",true);
+        }else{
+            $('#mapGrid').prop("checked",false);
+        }
+        screen.setGrid(jsonData.canvas.size,jsonData.canvas.color,jsonData.canvas.lineSize,jsonData.canvas.lineAlpha);
 
         // Canvas上に画像を表示
         let img = new Image();
-        img.src = jsonData.image;
+        img.src = jsonData.canvas.image;
         img.onload = function () {
             screen.redraw(0, 0);
             $('#canvasWidth').val(img.width);
             $('#canvasHeight').val(img.height);
         }
         screen.image = img;
+
+        // Object読み込み
+        for (let i = jsonData.canvas.objects.length - 1; i >= 0; i--){
+            screen.addObject(new MapObject(jsonData.canvas.objects[i]));
+            $("#objectList").prepend(`<option>` + jsonData.canvas.objects[i].name + `</option>`);
+        }
+        screen.redraw(0,0);
     }
 
     // ファイル読み込みを実行
