@@ -69,7 +69,6 @@ Screen.prototype.updateObject = function (index,object) {
     this.objects[index] = object;
 }
 
-
 Screen.prototype.upObject = function (index) {
     const s_object = this.objects[index];
     this.objects[index] = this.objects[index - 1];
@@ -171,6 +170,28 @@ Screen.prototype.setBgColor = function (rgb,alpha) {
     this.background = rgb;
     this.backgroundAlpha = alpha;
     this.redraw(0,0);
+}
+
+Screen.prototype.toJson = function(){
+    let jsonData = {
+        "image": this.image.currentSrc,
+        "objects": this.objects,
+        "gridSize": this.gridSize,
+        "gridColor": this.gridColor,
+        "gridLineWidth": this.gridLineWidth,
+        "gridAlpha": this.gridAlpha,
+        "canvasWidth": this.canvas.width,
+        "canvasHeight": this.canvas.height,
+        "background": this.background,
+        "backgroundAlpha": this.backgroundAlpha,
+        "fdGridSize": this.fdGridSize,
+        "fdColor": this.fdColor
+    }
+    return jsonData
+}
+
+Screen.prototype.importJson = function(jsonData){
+    
 }
 
 function CanvasDragger(elem) {
