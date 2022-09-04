@@ -17,7 +17,7 @@ function Screen(canvas) {
     this.diffY = 0;
     this.image = new Image();
     this.grid = false;
-    this.gridSize = 0;
+    this.gridSize = 100;
     this.gridColor = "rgb(0, 255, 255)";
     this.gridLineWidth = 1;
     this.gridAlpha = 0.3;
