@@ -16,6 +16,7 @@ function Screen(canvas) {
     this.diffX = 0;
     this.diffY = 0;
     this.image = new Image();
+    this.grid = false;
     this.gridSize = 0;
     this.gridColor = "rgb(0, 255, 255)";
     this.gridLineWidth = 1;
@@ -103,7 +104,7 @@ Screen.prototype.redraw = function (dx, dy) {
     forceDistributorLayer(this.ctx,this.diffX,this.diffY,this.fdColor,this.fdGrid,this.fdGridSize);
 
     // Grid線描画
-    if (this.gridSize != 0) {
+    if (this.grid) {
         DrawGrid(this.ctx, this.gridSize, this.gridColor, this.gridLineWidth, this.gridAlpha,
             this.image.width != 0 ? this.image.width : this.canvas.width,
             this.image.height != 0 ? this.image.height : this.canvas.height,
@@ -152,11 +153,13 @@ Screen.prototype.reposition = function () {
     this.redraw(-this.diffX, -this.diffY);
 }
 
-Screen.prototype.setGrid = function (size,color,lineSize,lineAlpha) {
+Screen.prototype.setGrid = function (grid,size,color,lineSize,lineAlpha) {
+    this.grid = grid;
     this.gridSize = size;
     this.gridColor = color;
     this.gridLineWidth = lineSize;
     this.gridAlpha = lineAlpha;
+    this.redraw(0,0);
 }
 
 Screen.prototype.setCanvasSize = function (width, height) {
@@ -176,6 +179,7 @@ Screen.prototype.toJson = function(){
     let jsonData = {
         "image": this.image.currentSrc,
         "objects": this.objects,
+        "grid": this.grid,
         "gridSize": this.gridSize,
         "gridColor": this.gridColor,
         "gridLineWidth": this.gridLineWidth,

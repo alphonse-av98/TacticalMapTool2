@@ -1,9 +1,6 @@
+// Import(Background Image)ボタン
 $('#importImage').click(function (e) {
     $('#imagefile').click();
-});
-
-$('#importConf').click(function (e) {
-    $('#mapImport').click();
 });
 
 $('#imagefile').change(function (e) {
@@ -56,25 +53,9 @@ function canvasDraw(imgSrc) {
     screen.image = img;
 }
 
-// ポジションリセットボタン
-$('#repositionBtn').click(function () {
-    screen.reposition();
-});
-
-$('#mapExport').click(function () {
-    const exportData = {
-        "name": $('#mapName').val(),
-        "canvas": screen.toJson()
-    }
-    const blob = new Blob([JSON.stringify(exportData)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    document.body.appendChild(a);
-    a.download = $("#mapName").val()+'.json';
-    a.href = url;
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
+// Import(Conf)ボタン
+$('#importConf').click(function (e) {
+    $('#mapImport').click();
 });
 
 // MAP情報を読込
@@ -116,21 +97,18 @@ $('#mapImport').change(function (e) {
         screen.setCanvasSize(jsonData.canvas.canvasWidth,jsonData.canvas.canvasHeight);
 
         // 背景色設定
-        $('#background').val(jsonData.canvas.background);
-        $('#backgroundAlpha').val(jsonData.canvas.backgroundAlpha);
+        $('#mapBackground').prop("checked",[null, undefined, "rgba(0, 0, 0, 0)"].includes(jsonData.canvas.background) ? false: true);
+        $('#mapBackgroundColor').val(jsonData.canvas.background);
+        $('#mapBackgroundAlpha').val(jsonData.canvas.backgroundAlpha*100);
         screen.setBgColor(jsonData.canvas.background,jsonData.canvas.backgroundAlpha);
-
+        
         // Grid設定
-        $('#mapGridSize').val(jsonData.canvas.size);
-        $('#mapGridColor').val(jsonData.canvas.color);
-        $('#mapGridLineSize').val(jsonData.canvas.lineSize);
-        $('#mapGridLineAlpha').val(jsonData.canvas.lineAlpha);
-        if(jsonData.canvas.lineAlpha == 0){
-            $('#mapGrid').prop("checked",true);
-        }else{
-            $('#mapGrid').prop("checked",false);
-        }
-        screen.setGrid(jsonData.canvas.size,jsonData.canvas.color,jsonData.canvas.lineSize,jsonData.canvas.lineAlpha);
+        $('#mapGrid').prop("checked",[null, undefined].includes(jsonData.canvas.grid) ? false: jsonData.canvas.grid);
+        $('#mapGridSize').val(jsonData.canvas.gridSize);
+        $('#mapGridColor').val(jsonData.canvas.gridColor);
+        $('#mapGridLineSize').val(jsonData.canvas.gridLineWidth);
+        $('#mapGridAlpha').val(jsonData.canvas.gridAlpha*100);
+        screen.setGrid(jsonData.canvas.grid,jsonData.canvas.gridSize,jsonData.canvas.gridColor,jsonData.canvas.gridLineWidth,jsonData.canvas.gridAlpha);
 
         // Canvas上に画像を表示
         let img = new Image();
@@ -154,6 +132,7 @@ $('#mapImport').change(function (e) {
     reader.readAsText(fileData);
 });
 
+// Export(PNG Image)ボタン
 $('#mapCanvasSave').click(function () {
     screen.reposition();
     screen.canvas.toBlob((blob) => {
@@ -170,56 +149,19 @@ $('#mapCanvasSave').click(function () {
     }, 'image/png');
 });
 
-$('#mapGrid').change(GridChange);
-
-$('#mapGridColor').change(GridChange);
-
-$('#mapGridSize').change(GridChange);
-
-$('#mapLineSize').change(GridChange);
-
-$('#mapLineAlpha').change(GridChange);
-
-function GridChange() {
-    if ($('#mapGrid').prop('checked')) {
-        screen.setGrid(parseInt($('#mapGridSize').val()), $('#mapGridColor').val(), $('#mapLineSize').val(), $('#mapLineAlpha').val() / 100);
-    } else {
-        screen.setGrid(0, $('#mapGridColor').val(), $('#mapLineSize').val(), $('#mapLineAlpha').val() / 100);
+// Export(Conf)ボタン
+$('#mapExport').click(function () {
+    const exportData = {
+        "name": $('#mapName').val(),
+        "canvas": screen.toJson()
     }
-    screen.redraw(0,0);
-}
-
-$('#mapAddMapList').click(function () {
-    // 手のひらツールボタンに切り替え
-    $('#blankBtn').trigger("click");
-
-    let mapList = $('#mapList').children('option');
-    let mapname = $("#mapName").val();
-    let number = 0;
-    let flag = false;
-
-    for (let i = 0; i < mapList.length; i++){
-        let name = mapList.eq(i).text();
-        if (name.lastIndexOf(mapname + "_") != -1) {
-            let tempNum = name.substring(name.lastIndexOf("_") + 1);
-            if (isNumber(tempNum)) {
-                tempNum = parseInt(tempNum)
-                if (number < tempNum) {
-                    number = tempNum;
-                }
-            }
-        }
-        if (mapname == name) {
-            flag = true;
-        }
-    }
-
-    // 同名のMAPがなければ
-    if (flag) {
-        number = number + 1;
-        mapname = mapname + "_" + number;
-    }
-
-    $('#mapList').append($("<option>").val(screen.canvas.toDataURL()).text(mapname));
-    alert(mapname+"をMAP LISTに追加しました。\n\""+ mapname + "\" has been added to the Map List.")
+    const blob = new Blob([JSON.stringify(exportData)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    document.body.appendChild(a);
+    a.download = $("#mapName").val()+'.json';
+    a.href = url;
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
 });
