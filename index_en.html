@@ -38,16 +38,16 @@
             <div class="edit-content">
                 <div class="map-edit">
                     <div class="map-edit-menus">
-                        <h3>編集パネル</h3>
+                        <h3>Edit</h3>
                         <section class="map-edit-menus-tab">
                             <input id="pictureConfTab" type="checkbox" name="map-edit-menus-tab-item" checked>
-                            <label class="map-edit-menus-tab-item" for="pictureConfTab">MAP設定</label>
+                            <label class="map-edit-menus-tab-item" for="pictureConfTab">Map Setting</label>
                             <div class="map-edit-menus-content">
                                 <div class="map-edit-image-conf">
                                     <table class="map-edit-table">
                                         <tbody>
                                             <tr>
-                                                <td class="map-edit-td-head">地図名</td>
+                                                <td class="map-edit-td-head">Name</td>
                                                 <td class="map-edit-td-cell">
                                                     <input type="text" id="mapName" value="current"
                                                         class="map-edit-name-text">
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <input id="objectConfTab" type="checkbox" name="map-edit-menus-tab-item" checked>
-                            <label class="map-edit-menus-tab-item" for="objectConfTab">オブジェクト</label>
+                            <label class="map-edit-menus-tab-item" for="objectConfTab">Object Panel</label>
                             <div class="map-edit-menus-content">
                                 <div class="map-edit-objects-area">
                                     <canvas id="previewCanvas" class="map-edit-preview"></canvas>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="map-edit-object-name-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">ｵﾌﾞｼﾞｪｸﾄ名</div>
+                                            <div class="map-object-conf-label">ObjName:</div>
                                             <div class="map-object-conf-value">
                                                 <input type="text" class="map-edit-object-name" id="objName">
                                             </div>
@@ -102,14 +102,14 @@
                                     <div class="map-edit-object-msg-conf">
                                         <div class="map-edit-object-conf-area">
                                             <div class="map-edit-object-conf-msg-area">
-                                                <div class="map-object-conf-label">文章内容</div>
+                                                <div class="map-object-conf-label">Message:</div>
                                                 <textarea id="msgMessage" class="map-edit-object-message"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="map-edit-object-color-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">色</div>
+                                            <div class="map-object-conf-label">Color:</div>
                                             <div class="map-object-conf-value">
                                                 <input type="color" value="#FE024A" class="map-edit-object-color"
                                                     id="objColor">
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="map-edit-object-size-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">サイズ</div>
+                                            <div class="map-object-conf-label">Size:</div>
                                             <div class="map-object-conf-value">
                                                 <label id="sizeDeg" class="inc-deg-btn">-</label>
                                                 <input type="number" id="objSize" size="3" min="1" value="20"
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="map-edit-object-alpha-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">透過率</div>
+                                            <div class="map-object-conf-label">Alpha:</div>
                                             <div class="map-object-conf-value">
                                                 <label id="objAlphaDeg" class="inc-deg-btn">-</label>
                                                 <input type="number" id="objAlpha" step="1" min="0" max="100" value="90"
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="map-edit-object-rotate-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">回転率</div>
+                                            <div class="map-object-conf-label">Rotate:</div>
                                             <div class="map-object-conf-value">
                                                 <label id="rotateDeg" class="inc-deg-btn">-</label>
                                                 <input type="number" id="objRotate" size="3" max="180" min="-180"
@@ -157,7 +157,7 @@
                                     </div>
                                     <div class="map-edit-object-point-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">二重丸</div>
+                                            <div class="map-object-conf-label">Double:</div>
                                             <div class="map-object-conf-value">
                                                 <label>
                                                     <input type="checkbox" id="doubleFlag" />
@@ -168,7 +168,7 @@
                                     </div>
                                     <div class="map-edit-object-msg-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">グリッド</div>
+                                            <div class="map-object-conf-label">Grid:</div>
                                             <div class="map-object-conf-value">
                                                 <label>
                                                     <input type="checkbox" id="msgGrid" />
@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="map-edit-object-head-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">頭</div>
+                                            <div class="map-object-conf-label">Head:</div>
                                             <div class="map-object-conf-value">
                                                 <input id="noHead" type="radio" name="arrowhead" value="" checked>
                                                 <label for="noHead" class="arrowhead-btn">
@@ -204,7 +204,7 @@
                                     </div>
                                     <div class="map-edit-object-line-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">始点破線</div>
+                                            <div class="map-object-conf-label">StartDash:</div>
                                             <div class="map-object-conf-value">
                                                 <label>
                                                     <input type="checkbox" id="startDash" />
@@ -213,7 +213,7 @@
                                             </div>
                                         </div>
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">終点破線</div>
+                                            <div class="map-object-conf-label">EndDash:</div>
                                             <div class="map-object-conf-value">
                                                 <label>
                                                     <input type="checkbox" id="endDash" />
@@ -235,7 +235,7 @@
                                     </div>
                                     <div class="map-edit-object-pos-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">位置</div>
+                                            <div class="map-object-conf-label">Position:</div>
                                             <div class="map-object-conf-value">
                                                 <div class="map-edit-object-xy-label">X:
                                                     <input type="number" id="objX" size="10" class="map-edit-object-xy">
@@ -248,7 +248,7 @@
                                     </div>
                                     <div class="map-edit-object-poslist-conf">
                                         <div class="map-edit-object-conf-area">
-                                            <div class="map-object-conf-label">位置</div>
+                                            <div class="map-object-conf-label">Position:</div>
                                             <div class="map-object-conf-value">
                                                 <div class="map-edit-object-xy-label">X:
                                                     <input type="number" id="objListX" size="10"
@@ -268,8 +268,8 @@
                                     <div class="map-edit-object-area-conf">
                                         <div class="map-edit-object-conf-area">
                                             <div class="map-object-conf-label">
-                                                <div>横幅</div>
-                                                <div>高さ</div>
+                                                <div>Width:</div>
+                                                <div>Height:</div>
                                             </div>
                                             <div class="map-object-conf-value">
                                                 <div>
@@ -286,7 +286,7 @@
                                     <div class="map-edit-object-arc-conf">
                                         <div class="map-edit-object-conf-area">
                                             <div class="map-object-conf-label">
-                                                <div>角度</div>
+                                                <div>Angle:</div>
                                             </div>
                                             <div class="map-object-conf-value">
                                                 <input type="number" id="arcStartAngle" size="10" value="30" max="180"
@@ -300,8 +300,8 @@
                                     <div class="map-edit-object-arcarrow-conf">
                                         <div class="map-edit-object-conf-area">
                                             <div class="map-object-conf-label">
-                                                <div>始点</div>
-                                                <div>終点</div>
+                                                <div>Start:</div>
+                                                <div>End:</div>
                                             </div>
                                             <div class="map-object-conf-value">
                                                 <div>
@@ -328,8 +328,8 @@
                                         </div>
                                         <div class="map-edit-object-conf-area">
                                             <div class="map-object-conf-label">
-                                                <div>位置</div>
-                                                <div>高さ</div>
+                                                <div>Division:</div>
+                                                <div>Camber:</div>
                                             </div>
                                             <div class="map-object-conf-value">
                                                 <div>
@@ -353,41 +353,41 @@
                                     <div class="map-edit-object-list-btn">
                                         <label class="label-btn" id="objUpBtn">↑</label>
                                         <label class="label-btn" id="objDownBtn">↓</label>
-                                        <label class="label-btn" id="objDelBtn">削除</label>
-                                        <label class="label-btn" id="allObjDelBtn">全削</label>
+                                        <label class="label-btn" id="objDelBtn">Del</label>
+                                        <label class="label-btn" id="allObjDelBtn">AllDel</label>
                                     </div>
                                 </div>
                             </div>
                         </section>
                     </div>
                     <div class="map-edit-canvas">
-                        <h3>キャンパス</h3>
+                        <h3>Canvas</h3>
                         <div>
                             <div class="map-edit-image-menu">
                                 <ul>
-                                    <li><a>ファイル</a>
+                                    <li><a>File</a>
                                         <div class="map-edit-image-menu-file-list">
                                             <ul>
-                                                <li><a id="importImage">背景インポート</a></li>
+                                                <li><a id="importImage">Import(Background Image)</a></li>
                                                 <input type="file" id="imagefile" name="imagefile"
                                                     accept=".jpg, jpeg, .png, .gif, .svg, .tiff, .bmp" />
-                                                <li><a id="importConf">設定インポート</a></li>
+                                                <li><a id="importConf">Import(Conf)</a></li>
                                                 <input type="file" id="mapImport" accept=".json" />
-                                                <li><a id="mapCanvasSave">画像エクスポート</a></li>
-                                                <li><a id="mapExport">設定エクスポート</a></li>
+                                                <li><a id="mapCanvasSave">Export(PNG Image)</a></li>
+                                                <li><a id="mapExport">Export(Conf)</a></li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li>
                                         <a>
                                             <input type="checkbox" id="mapBackground">
-                                            <label for="mapBackground">キャンパス</label>
+                                            <label for="mapBackground">Canvas</label>
                                         </a>
                                         <div class="map-edit-image-menu-panel">
                                             <div class="map-grid-contents">
                                                 <div class="map-grid-content">
                                                     <label for="mapBackgroundColor"
-                                                        class="map-object-conf-label">色</label>
+                                                        class="map-object-conf-label">Color:</label>
                                                     <div class="map-object-conf-value">
                                                         <input type="color" value="#000000" class="map-grid-color"
                                                             id="mapBackgroundColor">
@@ -397,7 +397,7 @@
                                             <div class="map-grid-contents">
                                                 <div class="map-grid-content">
                                                     <label for="mapBackgroundAlpha"
-                                                        class="map-object-conf-label">透過率</label>
+                                                        class="map-object-conf-label">Alpha:</label>
                                                     <input type="number" value="100" class="map-grid-size"
                                                         id="mapBackgroundAlpha">
                                                     <label class="map-image-font">%</label>
@@ -406,7 +406,7 @@
                                             <div class="map-grid-contents">
                                                 <div class="map-grid-content">
                                                     <label for="canvasWidth"
-                                                        class="map-object-conf-label">幅</label>
+                                                        class="map-object-conf-label">Width:</label>
                                                     <input type="number" value="1280" min="100" size="4"
                                                         id="canvasWidth" class="map-canvas-size">
                                                     <label class="map-image-font">px</label>
@@ -415,7 +415,7 @@
                                             <div class="map-grid-contents">
                                                 <div class="map-grid-content">
                                                     <label for="canvasHeight"
-                                                        class="map-object-conf-label">高さ</label>
+                                                        class="map-object-conf-label">Height:</label>
                                                     <input type="number" value="720" min="100" size="4"
                                                         id="canvasHeight" class="map-canvas-size">
                                                     <label class="map-image-font">px</label>
@@ -432,7 +432,7 @@
                                             <div class="map-grid-contents">
                                                 <div class="map-grid-content">
                                                     <label for="mapGridColor"
-                                                        class="map-object-conf-label">色</label>
+                                                        class="map-object-conf-label">Color:</label>
                                                     <div class="map-object-conf-value">
                                                         <input type="color" value="#00FFFF" class="map-grid-color"
                                                             id="mapGridColor">
@@ -440,21 +440,21 @@
                                                 </div>
                                                 <div class="map-grid-content">
                                                     <label for="mapGridSize"
-                                                        class="map-object-conf-label">GridSize</label>
+                                                        class="map-object-conf-label">GridSize:</label>
                                                     <input type="number" value="100" min="1" size="3" id="mapGridSize"
                                                         class="map-grid-size">
                                                     <label class="map-image-font">px</label>
                                                 </div>
                                                 <div class="map-grid-content">
                                                     <label for="mapGridLineSize"
-                                                        class="map-object-conf-label">線幅</label>
+                                                        class="map-object-conf-label">LineSize:</label>
                                                     <input type="number" value="1" min="1" max="5" size="3"
                                                         id="mapGridLineSize" class="map-grid-size">
                                                     <label class="map-image-font">px</label>
                                                 </div>
                                                 <div class="map-grid-content">
                                                     <label for="mapGridAlpha"
-                                                        class="map-object-conf-label">透過率</label>
+                                                        class="map-object-conf-label">Alpha:</label>
                                                     <input type="number" value="30" min="1" max="100" size="3"
                                                         id="mapGridAlpha" class="map-grid-size">
                                                     <label class="map-image-font">%</label>
@@ -463,11 +463,11 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a></a>
+                                        <a>ForceDistribution</a>
                                         <div class="map-edit-image-menu-panel">
                                             <div class="map-grid-contents">
                                                 <div class="map-grid-content">
-                                                    <label for="mapFdColor" class="map-object-conf-label">色</label>
+                                                    <label for="mapFdColor" class="map-object-conf-label">Color:</label>
                                                     <div class="map-object-conf-value">
                                                         <input type="color" value="#FF1E64" class="map-grid-color"
                                                             id="mapFdColor">
@@ -484,10 +484,10 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a id="repositionBtn">ポジションリセット</a>
+                                        <a id="repositionBtn">Reposition</a>
                                     </li>
                                     <li>
-                                        <a id="mapAddMapList">MovieMapList追加</a>
+                                        <a id="mapAddMapList">Add (MovieMapList)</a>
                                     </li>
                                 </ul>
                             </div>
@@ -520,13 +520,13 @@
                             <table class="map-edit-table">
                                 <tbody>
                                     <tr>
-                                        <td class="map-edit-td-head"></td>
+                                        <td class="map-edit-td-head">Preview</td>
                                         <td class="map-edit-td-cell">
-                                            <label id="animationPreview" class="pjobj-btn">プレビュー</label>
+                                            <label id="animationPreview" class="pjobj-btn">Preview</label>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="map-edit-td-head">名前</td>
+                                        <td class="map-edit-td-head">Namae</td>
                                         <td class="map-edit-td-cell">
                                             <input type="text" class="map-edit-name-text" id="gifName"
                                                 value="download" />
@@ -534,14 +534,14 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="map-edit-td-head">横幅</td>
+                                        <td class="map-edit-td-head">Width</td>
                                         <td class="map-edit-td-cell">
                                             <input type="number" value="640" min="128" id="movieWidth"
                                                 class="movie-image-size">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="map-edit-td-head">高さ</td>
+                                        <td class="map-edit-td-head">Height</td>
                                         <td class="map-edit-td-cell">
                                             <input type="number" value="480" min="128" id="movieHeight"
                                                 class="movie-image-size">
